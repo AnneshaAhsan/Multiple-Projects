@@ -10,6 +10,7 @@
           "user-select"
         ]
       }
-    ]
+    ],
+    "axe/forms": "off"
   }
 }
