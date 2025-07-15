@@ -16,34 +16,53 @@
 
         <div class="input-group">
           <label>Full Name</label>
-          <input type="text" placeholder="Enter your name" />
-          <span id="name-error"></span>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            class="contact-name"
+            onkeyup="validateName()"
+          />
+          <span class="name-error"></span>
         </div>
 
         <div class="input-group">
           <label>Phone No.</label>
-          <input type="tel" placeholder="123 456 7890" />
-          <span id="phone-error"></span>
+          <input
+            type="tel"
+            placeholder="123 456 7890"
+            class="contact-phone"
+            onkeyup="validatePhone()"
+          />
+          <span class="phone-error"></span>
         </div>
 
         <div class="input-group">
           <label>Email Id</label>
-          <input type="email" placeholder="Enter Email" />
-          <span id="email-error"></span>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            class="contact-email"
+            onkeyup="validateEmail()"
+          />
+          <span class="email-error"></span>
         </div>
 
         <div class="input-group">
           <label>Your Message</label>
-
-          <textarea rows="5" placeholder="Enter your message"></textarea>
-          <span id="message-error"></span>
+          <textarea
+            rows="5"
+            placeholder="Enter your message"
+            class="contact-message"
+            onkeyup="validateMessage()"
+          ></textarea>
+          <span class="message-error"></span>
         </div>
 
-        <button>Submit</button>
-        <span id="submit-error"></span>
+        <button onclick="return validateForm()">Submit</button>
+        <span class="submit-error"></span>
       </form>
     </div>
-    <!-- Js -->
-    <link rel="stylesheet" href="script.js" class="js" />
+
+    <script src="script.js"></script>
   </body>
 </html>
