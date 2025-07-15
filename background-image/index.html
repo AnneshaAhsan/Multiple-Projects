@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Image Change</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="img-box">
+        <img src="./image/transparent.png" alt="" width="100%" />
+
+        <div class="img-wrap">
+          <img src="./image/original.jpg" alt="" class="original-img" />
+        </div>
+        <span class="line"
+          ><img src="./image/arrow.png" alt="" class="arrow"
+        /></span>
+      </div>
+    </div>
+
+    <script>
+      const imgWrap = document.querySelector(".img-wrap");
+      const imgBox = document.querySelector(".img-box");
+      const line = document.querySelector(".line");
+      const originalImg = document.querySelector(".original-img");
+
+      // Match width of the overlay image to the container
+      originalImg.style.width = imgBox.offsetWidth + "px";
+
+      // Update left offset dynamically
+      let leftSpace = imgBox.offsetLeft;
+
+      window.addEventListener("resize", () => {
+        originalImg.style.width = imgBox.offsetWidth + "px";
+        leftSpace = imgBox.offsetLeft;
+      });
+
+      imgBox.addEventListener("mousemove", (e) => {
+        let boxWidth = e.pageX - leftSpace;
+        // Limit movement within bounds
+        if (boxWidth < 0) boxWidth = 0;
+        if (boxWidth > imgBox.offsetWidth) boxWidth = imgBox.offsetWidth;
+
+        imgWrap.style.width = boxWidth + "px";
+        line.style.left = boxWidth + "px";
+      });
+    </script>
+  </body>
+</html>
